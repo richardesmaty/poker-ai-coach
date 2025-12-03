@@ -27,10 +27,6 @@ from dotenv import load_dotenv
 # Load environment variables from .env file (if exists)
 load_dotenv()
 
-@app.route("/")
-def home():
-    return {"status": "Poker AI Coach Backend is Running!"}
-
 
 # ============================================
 # CREATE FLASK APP
@@ -45,7 +41,9 @@ app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-producti
 # Enable CORS so your React frontend can call this API
 # This allows requests from your Netlify frontend to this backend
 CORS(app)
-
+@app.route("/")
+def home():
+    return jsonify({"status": "Poker AI Coach Backend is Running!"})
 # ============================================
 # STORE ACTIVE GAMES
 # ============================================
@@ -416,5 +414,6 @@ POST /api/game/{id}/add-chips → Add chips to player stack
 
 Your React frontend calls these endpoints to interact with the game!
 """
+
 
 
