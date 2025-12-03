@@ -8,9 +8,6 @@ KEY DIFFERENCES FROM STREAMLIT:
 3. Your React frontend will call these endpoints
 4. Can be deployed to Render/Railway/etc.
 """
-@app.route("/")
-def home():
-    return {"status": "Poker AI Coach Backend is Running!"}
 
 
 
@@ -29,6 +26,11 @@ from dotenv import load_dotenv
 
 # Load environment variables from .env file (if exists)
 load_dotenv()
+
+@app.route("/")
+def home():
+    return {"status": "Poker AI Coach Backend is Running!"}
+
 
 # ============================================
 # CREATE FLASK APP
@@ -414,4 +416,5 @@ POST /api/game/{id}/add-chips → Add chips to player stack
 
 Your React frontend calls these endpoints to interact with the game!
 """
+
 
